@@ -1,8 +1,6 @@
-Forked and built with the latest kubectl. 
+# drone-ct [WIP] [![Build Status](https://drone.dxas90.xyz/api/badges/dxas90/drone-ct/status.svg)](https://drone.dxas90.xyz/dxas90/drone-ct)
 
-# drone-kubectl
-
-This [Drone](https://drone.io/) plugin allows you to use `kubectl` without messing around with the authentication.
+This [Drone](https://drone.io/) plugin allows you to use `ct` without messing around with the authentication.
 
 ## Usage
 
@@ -13,7 +11,7 @@ name: deploy
 
 steps:
   - name: deploy
-    image: dxas90/drone-kubectl
+    image: dxas90/drone-ct
     environment:
       KUBE_CONFIG:
         from_secret: kube_config
@@ -25,6 +23,7 @@ steps:
 ## How to get the credentials
 
 First, you need to have a service account with **proper privileges** and **service-account-token**:
+
 ```bash
 cat ~/.kube/config | base64 -w0 > config-serialized
 ```
@@ -32,5 +31,4 @@ cat ~/.kube/config | base64 -w0 > config-serialized
 ### Special thanks
 
 Inspired by:
-- [drone-kubernetes](https://github.com/honestbee/drone-kubernetes)
-- [drone-kubectl](https://github.com/sinlead/drone-kubectl)
+- [drone-kubectl](https://github.com/dxas90/drone-kubectl)
